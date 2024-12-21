@@ -25,7 +25,6 @@ data "http" "json-body" {
 locals {
     fruit = try(jsondecode(data.http.json-body.body).fruit, "NO FRUIT AVAILABLE")
     fakeKey = try(jsondecode(data.http.json-body.body).fakeKey, "This key does not exist in JSON")
-    # fakeKey = jsondecode(data.http.json-body.body).fakeKey //ugly error when you do not use try
 
     /*
         Using For loops
